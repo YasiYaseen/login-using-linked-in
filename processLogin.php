@@ -26,10 +26,11 @@ include_once 'config.php';
 
             try {
                 var  xhttp =new XMLHttpRequest();
-                xhttp.onreadystatechange =()=>{
+                xhttp.onreadystatechange =function(){
                     if(this.readyState ==4 && this.status ==200){
                         if(this.responseText == 'success'){
-                            console.log('success')
+                            console.log('success');
+                            window.location.href='index.php';
                         }
                     }
                 }
