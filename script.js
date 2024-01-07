@@ -20,7 +20,14 @@ let comments = [
         comment:
           "Actually, now that I try out the links on my message, above, none of them take me to the secure site. Only my shortcut on my desktop, which I created years ago.",
         picture: "https://randomuser.me/api/portraits/men/36.jpg",
-        reply: [],
+        reply: [{
+          id: "3",
+          name: "Muhammed Yaseen",
+          comment:
+            "Actually, now that I try out the links on my message, above, none of them take me to the secure site. Only my shortcut on my desktop, which I created years ago.",
+          picture: "https://randomuser.me/api/portraits/men/36.jpg",
+          reply: [],
+        },],
       },
       {
         id: "3",

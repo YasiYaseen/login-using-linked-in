@@ -46,7 +46,7 @@ session_start();
     <div class="login-btn">
         <?php if (!isset($_SESSION['name'])) {
         ?>
-        <div class="lgn-round">
+        <div class="lgn-round" id="login-btn">
             <h4>Login</h4>
         </div>
         <?php
@@ -54,6 +54,7 @@ session_start();
         <div class="profile">
             <img src="<?php echo $_SESSION['picture']; ?>" alt="">
             <h4><?php echo $_SESSION['name'] ?></h4>
+            <button class="logout-btn" id="logout-btn">Logout</button>
         </div>
         <?php
         } ?>
@@ -106,22 +107,56 @@ session_start();
 
     <script src="script.js"></script>
     <script>
-    let isLoggedIn = <?php echo (isset($_SESSION['email'])) ? 'true' : 'false';  ?>
 
-    const sendbutton = document.getElementById('sendbutton');
-    let inputbox = document.getElementById('messagebox');
+    document.addEventListener('DOMContentLoaded',()=>{
 
-    sendbutton.addEventListener('click', () => {
-        if (isLoggedIn) {
+        let isLoggedIn = <?php echo (isset($_SESSION['email'])) ? 'true' : 'false';  ?>
 
-            if (inputbox.innerText == "") {
-                alert("empty");
-            } else {
+const sendbutton = document.getElementById('sendbutton');
+let inputbox = document.getElementById('messagebox');
 
-            }
+sendbutton.addEventListener('click', () => {
+    if (isLoggedIn) {
+
+        if (inputbox.innerText == "") {
+            alert("empty");
         } else {
-            window.location.href = 'login.php';
+
         }
+    } else {
+        window.location.href = 'login.php';
+    }
+})
+const logoutBtn =document.getElementById('logout-btn');
+if(logoutBtn){
+    logoutBtn.addEventListener('click',async()=>{
+    fetch('logout.php',
+    {
+        method: 'GET',
+        credentials:'include'
+    }
+    ).then((response)=>{
+        if(!response.ok){
+            throw("Logout was Unsuccesful");
+        }
+        location.reload();
+    }).catch(error => {
+        console.log(error);
+    })
+})
+}
+
+const loginBtn = document.getElementById('login-btn');
+if(loginBtn){
+ loginBtn.addEventListener('click',()=>{
+
+    window.location.href = 'login.php';
+
+})   
+}
+
+
+
     })
     </script>
 </body>

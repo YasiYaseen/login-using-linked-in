@@ -30,7 +30,9 @@ include_once 'config.php';
                     if(this.readyState ==4 && this.status ==200){
                         if(this.responseText == 'success'){
                             console.log('success');
-                            window.location.href='index.php';
+                            // window.location.href='index.php';
+                            window.opener.location.href='index.php';
+                            window.close();
                         }
                     }
                 }

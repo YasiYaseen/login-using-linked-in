@@ -22,7 +22,9 @@ const signInUsingLinkedIn = async()=>{
 // let response = await fetch('https://www.linkedin.com/oauth/v2/authorization?response_type=code&redirect_uri=https://www.linkedin.com/developers/tools/oauth/redirect&scope=profile%20email&client_id=862wsm7tncsimi');
 try {
     // Redirect the user to the LinkedIn authorization page
-    window.location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&redirect_uri=${redirectUri}&scope=profile%20email%20openid&client_id=${clientId}&state=yaseensstate`;
+    // window.location.href = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&redirect_uri=${redirectUri}&scope=profile%20email%20openid&client_id=${clientId}&state=yaseensstate`;
+ let loginWindow =  window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&redirect_uri=${redirectUri}&scope=profile%20email%20openid&client_id=${clientId}&state=yaseensstate`);
+  loginWindow.opener=window;
 } catch (error) {
     // Handle errors
     console.error(error);
