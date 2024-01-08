@@ -414,3 +414,6 @@ h2 {
 .profile:hover .logout-btn{
     display: block;
 }
+.lgn-round{
+    cursor: pointer;
+}

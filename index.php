@@ -54,7 +54,7 @@ session_start();
         <div class="profile">
             <img src="<?php echo $_SESSION['picture']; ?>" alt="">
             <h4><?php echo $_SESSION['name'] ?></h4>
-            <button class="logout-btn" id="logout-btn">Logout</button>
+            <div class="logout-btn" id="logout-btn">Logout</div>
         </div>
         <?php
         } ?>
